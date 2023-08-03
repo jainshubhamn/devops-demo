@@ -1,0 +1,10 @@
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd.service
+systemctl enable httpd.service
+yum install -y git
+git clone https://github.com/codvatechlabs/CTL-DevOpsBatch-Feb2021.git
+cp -r CTL-DevOpsBatch-Feb2021/AWS/S3/demo-static-website/. /var/www/html/
+systemctl stop httpd.service
+systemctl start httpd.service
